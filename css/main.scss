@@ -1,0 +1,499 @@
+$colors: (
+    main: #E5E5E5,
+    myGold: #68462A,
+    myGold-80: rgba(104, 70, 42, 0.75),
+    myGold-light: rgba(104, 70, 42, 0.40),
+    primary-dark: darken(#005DFF, 40%)
+);
+
+// $desktop: 840px;
+
+// @mixin desktop {
+//     @media (min-width: #{$desktop}) {
+//         @content;
+//     }
+// }
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+h1, h2, h3{
+    font-family: 'Raleway';
+}
+
+h4, h5 {
+    font-family: "Roboto Slab";
+    font-weight: 300;
+    font-size: 20px;
+    color: color(main);
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+h5 {
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+body {
+    font-family: "Roboto Slab";
+    margin: 0;
+
+    section {
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+
+        .sectionIcon {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        h2 {
+            color: color(myGold-80);
+        }
+    }
+
+    .sectionTitle {
+        width: 630px;
+        border-bottom: solid 1px color(myGold-light);
+        margin: 0 auto;
+    }
+
+    .sectionParagraph {
+        width: 800px;
+        margin: 0 auto;
+
+        p {
+            line-height: 35px;
+            font-size: 18px;
+            text-align: justify;
+            margin: 0;
+        }
+
+        .eduAndProfParagraph {
+            color: #E5E5E5;
+            margin: 30px 70px 70px 70px;
+        }
+    }
+
+    #heroSection {
+        // clip-path: polygon(100% 0, 100% 82%, 45% 100%, 0 100%, 0 0);
+        background-image: url('../assets/hero-bg.png');
+        background-position: center bottom;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        color: color(main);
+
+        header {
+            width: 100%;
+            height: 100px;
+            display: grid;
+            grid-template-columns: 3fr 1fr 3fr;
+            grid-template-areas: "leftMenu logo rightMenu";
+            padding-top: 10px;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                margin: auto;
+                grid-area: logo;
+            }
+
+            ul {
+                list-style: none;
+                display: inline-block;
+                margin: auto;
+                padding: 0 0 20px 0;
+                border-bottom: #E5E5E5 solid 1px;
+                width: 80%;
+                font-size: 18px;
+
+                li {
+                    display: inline-block;
+                    text-transform: uppercase;
+                    margin: 0 50px;
+
+                    a {
+                        text-decoration: none;
+                        color: color(main)
+                    }
+                }
+            }
+
+            #leftMenu {
+                grid-area: leftMenu;
+                text-align: right;
+                padding-right: 10px;
+                margin-right: 50px;
+            }
+
+            #rightMenu {
+                grid-area: rightMenu;
+                text-align: left;
+                padding-left: 10px;
+                margin-left: 50px;
+            }
+        }
+
+    #Intro {
+        margin-top: 250px;
+        text-align: center;
+        text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 30px 0px; 
+        }
+        h3 {
+            font-size: 30px;
+            font-weight: 300; 
+        }
+    }
+
+    #personalStatementSection {
+        background-image: url('../assets/gaklaxyPersonalSection.svg');
+        background-size: contain;
+        background-position: center top;
+        padding-top: 15vh;
+    }
+
+    #educationSection {
+        height: 120vh;
+        background-image: url('../assets/forest-bg.png');
+        background-size: cover;
+        background-position: center bottom;
+        padding-top: 2vh;
+
+        #topTriangle {
+            position: relative;
+            top: -2vh;
+            height: 100px;
+            width: 100%;
+            background-image: url("../assets/gora.png");
+            background-size: auto;
+            background-position: top left;
+        }
+
+        h2 {
+            color: color(main);
+        }
+
+        .sectionTitle {
+            border-bottom: solid 1px color(main);
+        }
+    }
+
+    #professionalExperienceSection {
+        height: 120vh;
+        background-image: url('../assets/water-bg.png');
+        background-size: cover;
+        background-position: center top;
+        padding-top: 10vh;
+        position: relative;
+        top: -100px;
+
+        #bottomTriangle {
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background-image: url("../assets/dol.png");
+            background-size: auto;
+            background-position: bottom right;
+        }
+
+        h2 {
+            color: color(main);
+        }
+
+        .sectionTitle {
+            border-bottom: solid 1px color(main);
+        }
+    }
+
+    #skillsSection {
+        background-image: url("../assets/galaxySkillsSection.svg");
+        background-size: contain;
+        background-position: center center;
+
+        #skillIcons {
+            position: relative;
+            margin: 50px auto 0 auto;
+
+            .iconRow {
+                position: absolute;
+                transform: translateX(-50%);
+                left: 50%;
+                display: grid;
+                grid-template-columns: 200px 200px 200px 200px;
+                grid-gap: 8px;
+
+                img {
+                    width: 200px;
+                    height: 200px;
+                    opacity: 0.5;
+                }
+
+                img:hover {
+                    opacity: 1;
+                }
+
+                .skillIcon {
+                    width: 200px;
+                    height: 200px;
+                    opacity: 0.9;
+                    background-size: contain;
+                    background-position: center center;
+                    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                    // transform: rotate(45deg);
+                    // background-color: #68462A;
+                }
+
+                .skillIcon:hover {
+                    opacity: 1;
+                }
+
+                #htmlIcon {
+                    background-image: url("../assets/ikony/HTML\ kopia.svg");
+                }
+                #cssIcon {
+                    background-image: url("../assets/ikony/CSS\ kopia.svg");
+                }
+                #jsIcon {
+                    background-image: url("../assets/ikony/JS\ kopia.svg");
+                }
+                #sassIcon {
+                    background-image: url("../assets/ikony/SASS\ kopia.svg");
+                }
+                #gitIcon {
+                    background-image: url("../assets/ikony/Git\ kopia.svg");
+                }
+                #reactIcon {
+                    background-image: url("../assets/ikony/React\ kopia.svg");
+                }
+                #reduxIcon {
+                    background-image: url("../assets/ikony/Redux\ kopia.svg");
+                }
+                #dockerIcon {
+                    background-image: url("../assets/ikony/Docker\ kopia.svg");
+                }
+                #bootstrapIcon {
+                    background-image: url("../assets/ikony/Bootstrap\ kopia.svg");
+                }
+                #aiIcon {
+                    background-image: url("../assets/ikony/AI\ kopia.svg");
+                }
+                #psIcon {
+                    background-image: url("../assets/ikony/PS\ \ kopia.svg");
+                }
+                #pythonIcon {
+                    background-image: url("../assets/ikony/Python\ kopia.svg");
+                }
+                #mysqlIcon {
+                    background-image: url("../assets/ikony/MYSQL\ kopia.svg");
+                }
+        }
+
+            #firstRow {
+                top: 0;
+                z-index: 1;
+            }
+
+            #secondRow {
+                grid-template-columns: 200px 200px 200px 200px 200px;
+                top: 104px;
+                z-index: 2;
+            }
+
+            #thirdRow {
+                top: 208px;
+                z-index: 1;
+            }
+        }
+    }
+
+    #footerSection {
+        background-image: url("../assets//footer-bg.png");
+        padding-top: 200px;
+
+        h2 {
+            color: color(main);
+        }
+
+        .sectionTitle {
+            border-bottom: solid 1px color(main);
+        }
+
+        #buttonContainer {
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        button {
+            width: 250px;
+            height: 55px;
+            border: 1px solid #e5e5e5;
+            background-color: rgba(229, 229, 229, 0.1);
+            color: color(main);
+            text-transform: uppercase;
+            font-family: "Roboto Slab";
+            font-size: 14px;
+            margin: 0 50px;
+        }
+
+        footer {
+            border-top: color(main) solid 1px;
+            height: 100px;
+            margin: 0 150px;
+            position: relative;
+
+            img {
+                width: 150px;
+                height: auto;
+                margin: 20px;
+                position: absolute;
+                transform: translateX(-50%);
+                left: 50%;
+            }
+        }
+    }
+}
+    
+//     #bg {
+//         clip-path: polygon(100% 0, 100% 82%, 45% 100%, 0 100%, 0 0);
+//         background-color: color(main);
+//         width: 100%;
+//         height: 100%;
+//         position: absolute;
+//         z-index: -1;
+
+//         @include desktop {
+//             clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
+            
+//         }
+//     }
+
+//     header a {
+//         color: white;
+//         text-decoration: none;
+//         padding: 15px;
+//         display: block;
+//         text-transform: uppercase;
+//     }
+// }
+
+// main {
+
+//     @include desktop {
+//         display: grid;
+//         grid-template-columns: 50% auto;
+//         grid-template-areas: 
+//             "primary card";
+//     }
+
+//     section#card {
+//         background-color: #fff;
+//         padding: 20px;
+//         margin: 1em auto;
+//         border-radius: 15px;
+//         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+//         width: 80%;
+
+//         @include desktop {
+//             grid-area: card;
+//             height: fit-content;
+//             align-self: center;
+//             margin: 1em;
+//         }
+//     }
+
+//     ul {
+//         list-style-type: none;
+//         margin: 0;
+//         padding: 0;
+
+//         li {
+//             margin-bottom: 10px;
+
+//             span {
+//                 position: absolute;
+//                 content: ' ';
+//                 width: 30px;
+//                 height: 30px;
+//                 background-color: color(primary-light);
+//                 border-radius: 50%;
+//                 margin-right: 10px;
+//             }
+
+//             strong {
+//                 display: inline-block;
+//                 margin-left: max(40px);
+//                 margin-top: 10px;
+//             }
+//         }
+//     }
+
+//     section#primary {
+//         color:#fff;
+//         padding: 15px;
+//         text-align: center;
+
+//         @include desktop {
+//             grid-area: primary;
+//             text-align: left;
+//             margin: 4em 0 0 4em;            
+//         }
+
+//         h1 {
+//             font-size: 3em;
+//             margin-top: 10px;
+//             text-transform: uppercase;
+
+//             @include desktop {
+//                 width: 30%;
+//                 font-size: 4em;
+//                 line-height: 0.9em;            
+//             }
+//         }
+
+//         p {
+//             font-size: 1.4 em;
+//         }
+
+//         a {
+//             color: color(primary-dark);
+//             border-radius: 15px;
+//             text-decoration: none;
+//             text-transform: uppercase;
+//             font-weight: bold;
+//             background-color: color(accent);
+//             display: block;
+//             text-align: center;
+//             margin: 50px auto 0 auto;
+//             padding: 15px;
+
+//             @include desktop {
+//                 display: inline-block;
+//                 padding: 15px 60px;            
+//             }
+//         }
+//     }
+// }
