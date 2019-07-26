@@ -1,5 +1,6 @@
 h1, h2, h3 {
   font-family: 'Raleway';
+  margin: 30px 50px 10px 50px;
 }
 
 h4, h5 {
@@ -22,6 +23,10 @@ h2 {
   font-weight: 500;
   text-align: center;
   margin-bottom: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -93,7 +98,7 @@ body #heroSection header {
 }
 
 body #heroSection header img {
-  width: 100%;
+  width: 220px;
   height: auto;
   display: inline-block;
   margin: auto;
@@ -110,16 +115,18 @@ body #heroSection header ul {
   border-bottom: #E5E5E5 solid 1px;
   width: 80%;
   font-size: 18px;
+  text-align: center;
 }
 
 body #heroSection header ul li {
   display: inline-block;
   text-transform: uppercase;
-  margin: 0 50px;
+  margin: 0;
 }
 
 body #heroSection header ul li a {
   text-decoration: none;
+  display: block;
   color: #E5E5E5;
 }
 
@@ -127,8 +134,11 @@ body #heroSection header #leftMenu {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: leftMenu;
-  text-align: right;
   padding-right: 10px;
+  margin-right: 50px;
+}
+
+body #heroSection header #leftMenu li {
   margin-right: 50px;
 }
 
@@ -136,8 +146,11 @@ body #heroSection header #rightMenu {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: rightMenu;
-  text-align: left;
   padding-left: 10px;
+  margin-left: 50px;
+}
+
+body #heroSection header #rightMenu li {
   margin-left: 50px;
 }
 
@@ -170,12 +183,12 @@ body #educationSection {
   background-image: url("../assets/forest-bg.png");
   background-size: cover;
   background-position: center bottom;
-  padding-top: 2vh;
+  padding-top: 8vh;
 }
 
 body #educationSection #topTriangle {
   position: relative;
-  top: -2vh;
+  top: -8vh;
   height: 100px;
   width: 100%;
   background-image: url("../assets/gora.png");
@@ -196,7 +209,7 @@ body #professionalExperienceSection {
   background-image: url("../assets/water-bg.png");
   background-size: cover;
   background-position: center top;
-  padding-top: 10vh;
+  padding-top: 15vh;
   position: relative;
   top: -100px;
 }
@@ -223,6 +236,7 @@ body #skillsSection {
   background-image: url("../assets/galaxySkillsSection.svg");
   background-size: contain;
   background-position: center center;
+  padding-top: 70px;
 }
 
 body #skillsSection #skillIcons {
@@ -240,30 +254,23 @@ body #skillsSection #skillIcons .iconRow {
   -ms-grid-columns: 200px 200px 200px 200px;
       grid-template-columns: 200px 200px 200px 200px;
   grid-gap: 8px;
-}
-
-body #skillsSection #skillIcons .iconRow img {
-  width: 200px;
-  height: 200px;
-  opacity: 0.5;
-}
-
-body #skillsSection #skillIcons .iconRow img:hover {
-  opacity: 1;
+  height: 50px;
 }
 
 body #skillsSection #skillIcons .iconRow .skillIcon {
   width: 200px;
   height: 200px;
-  opacity: 0.9;
+  opacity: 1;
   background-size: contain;
   background-position: center center;
   -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
           clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  -webkit-transition-duration: 100ms;
+          transition-duration: 100ms;
 }
 
 body #skillsSection #skillIcons .iconRow .skillIcon:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 body #skillsSection #skillIcons .iconRow #htmlIcon {
@@ -320,7 +327,7 @@ body #skillsSection #skillIcons .iconRow #mysqlIcon {
 
 body #skillsSection #skillIcons #firstRow {
   top: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 body #skillsSection #skillIcons #secondRow {
@@ -338,6 +345,7 @@ body #skillsSection #skillIcons #thirdRow {
 body #footerSection {
   background-image: url("../assets//footer-bg.png");
   padding-top: 200px;
+  position: relative;
 }
 
 body #footerSection h2 {
@@ -363,22 +371,29 @@ body #footerSection button {
   font-family: "Roboto Slab";
   font-size: 14px;
   margin: 0 50px;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
 }
 
-body #footerSection footer {
+body #footerSection button:hover {
+  background-color: rgba(229, 229, 229, 0.2);
+}
+
+body #footerSection #footer {
   border-top: #E5E5E5 solid 1px;
-  height: 100px;
-  margin: 0 150px;
-  position: relative;
-}
-
-body #footerSection footer img {
-  width: 150px;
-  height: auto;
-  margin: 20px;
+  width: 80%;
+  margin-top: 50px;
   position: absolute;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   left: 50%;
+  bottom: 0;
+}
+
+body #footerSection #footer img {
+  width: 150px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
 }
 /*# sourceMappingURL=main.css.map */

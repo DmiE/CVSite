@@ -20,6 +20,7 @@ $colors: (
 
 h1, h2, h3{
     font-family: 'Raleway';
+    margin: 30px 50px 10px 50px;
 }
 
 h4, h5 {
@@ -42,6 +43,10 @@ h2 {
     font-weight: 500;
     text-align: center;
     margin-bottom: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -91,7 +96,6 @@ body {
     }
 
     #heroSection {
-        // clip-path: polygon(100% 0, 100% 82%, 45% 100%, 0 100%, 0 0);
         background-image: url('../assets/hero-bg.png');
         background-position: center bottom;
         width: 100%;
@@ -108,7 +112,7 @@ body {
             padding-top: 10px;
 
             img {
-                width: 100%;
+                width: 220px;
                 height: auto;
                 display: inline-block;
                 margin: auto;
@@ -123,14 +127,16 @@ body {
                 border-bottom: #E5E5E5 solid 1px;
                 width: 80%;
                 font-size: 18px;
+                text-align: center;
 
                 li {
                     display: inline-block;
                     text-transform: uppercase;
-                    margin: 0 50px;
+                    margin: 0;
 
                     a {
                         text-decoration: none;
+                        display: block;
                         color: color(main)
                     }
                 }
@@ -138,16 +144,24 @@ body {
 
             #leftMenu {
                 grid-area: leftMenu;
-                text-align: right;
+                // text-align: right;
                 padding-right: 10px;
                 margin-right: 50px;
+
+                li {
+                    margin-right: 50px;
+                }
             }
 
             #rightMenu {
                 grid-area: rightMenu;
-                text-align: left;
+                // text-align: left;
                 padding-left: 10px;
                 margin-left: 50px;
+
+                li {
+                    margin-left: 50px;
+                }
             }
         }
 
@@ -180,11 +194,11 @@ body {
         background-image: url('../assets/forest-bg.png');
         background-size: cover;
         background-position: center bottom;
-        padding-top: 2vh;
+        padding-top: 8vh;
 
         #topTriangle {
             position: relative;
-            top: -2vh;
+            top: -8vh;
             height: 100px;
             width: 100%;
             background-image: url("../assets/gora.png");
@@ -206,7 +220,7 @@ body {
         background-image: url('../assets/water-bg.png');
         background-size: cover;
         background-position: center top;
-        padding-top: 10vh;
+        padding-top: 15vh;
         position: relative;
         top: -100px;
 
@@ -233,6 +247,7 @@ body {
         background-image: url("../assets/galaxySkillsSection.svg");
         background-size: contain;
         background-position: center center;
+        padding-top: 70px;
 
         #skillIcons {
             position: relative;
@@ -245,30 +260,20 @@ body {
                 display: grid;
                 grid-template-columns: 200px 200px 200px 200px;
                 grid-gap: 8px;
-
-                img {
-                    width: 200px;
-                    height: 200px;
-                    opacity: 0.5;
-                }
-
-                img:hover {
-                    opacity: 1;
-                }
+                height: 50px;
 
                 .skillIcon {
                     width: 200px;
                     height: 200px;
-                    opacity: 0.9;
+                    opacity: 1;
                     background-size: contain;
                     background-position: center center;
                     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-                    // transform: rotate(45deg);
-                    // background-color: #68462A;
+                    transition-duration: 100ms;
                 }
 
                 .skillIcon:hover {
-                    opacity: 1;
+                    opacity: 0.8;
                 }
 
                 #htmlIcon {
@@ -314,7 +319,7 @@ body {
 
             #firstRow {
                 top: 0;
-                z-index: 1;
+                z-index: 3;
             }
 
             #secondRow {
@@ -333,6 +338,7 @@ body {
     #footerSection {
         background-image: url("../assets//footer-bg.png");
         padding-top: 200px;
+        position: relative;
 
         h2 {
             color: color(main);
@@ -357,143 +363,28 @@ body {
             font-family: "Roboto Slab";
             font-size: 14px;
             margin: 0 50px;
+            transition-duration: 300ms;
         }
 
-        footer {
+        button:hover {
+            background-color: rgba(229, 229, 229, 0.2);
+        }
+
+        #footer {
             border-top: color(main) solid 1px;
-            height: 100px;
-            margin: 0 150px;
-            position: relative;
+            width: 80%;
+            margin-top: 50px;
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+            bottom: 0;
 
             img {
                 width: 150px;
                 height: auto;
-                margin: 20px;
-                position: absolute;
-                transform: translateX(-50%);
-                left: 50%;
+                margin: 20px auto;
+                display: block;
             }
         }
     }
 }
-    
-//     #bg {
-//         clip-path: polygon(100% 0, 100% 82%, 45% 100%, 0 100%, 0 0);
-//         background-color: color(main);
-//         width: 100%;
-//         height: 100%;
-//         position: absolute;
-//         z-index: -1;
-
-//         @include desktop {
-//             clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
-            
-//         }
-//     }
-
-//     header a {
-//         color: white;
-//         text-decoration: none;
-//         padding: 15px;
-//         display: block;
-//         text-transform: uppercase;
-//     }
-// }
-
-// main {
-
-//     @include desktop {
-//         display: grid;
-//         grid-template-columns: 50% auto;
-//         grid-template-areas: 
-//             "primary card";
-//     }
-
-//     section#card {
-//         background-color: #fff;
-//         padding: 20px;
-//         margin: 1em auto;
-//         border-radius: 15px;
-//         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-//         width: 80%;
-
-//         @include desktop {
-//             grid-area: card;
-//             height: fit-content;
-//             align-self: center;
-//             margin: 1em;
-//         }
-//     }
-
-//     ul {
-//         list-style-type: none;
-//         margin: 0;
-//         padding: 0;
-
-//         li {
-//             margin-bottom: 10px;
-
-//             span {
-//                 position: absolute;
-//                 content: ' ';
-//                 width: 30px;
-//                 height: 30px;
-//                 background-color: color(primary-light);
-//                 border-radius: 50%;
-//                 margin-right: 10px;
-//             }
-
-//             strong {
-//                 display: inline-block;
-//                 margin-left: max(40px);
-//                 margin-top: 10px;
-//             }
-//         }
-//     }
-
-//     section#primary {
-//         color:#fff;
-//         padding: 15px;
-//         text-align: center;
-
-//         @include desktop {
-//             grid-area: primary;
-//             text-align: left;
-//             margin: 4em 0 0 4em;            
-//         }
-
-//         h1 {
-//             font-size: 3em;
-//             margin-top: 10px;
-//             text-transform: uppercase;
-
-//             @include desktop {
-//                 width: 30%;
-//                 font-size: 4em;
-//                 line-height: 0.9em;            
-//             }
-//         }
-
-//         p {
-//             font-size: 1.4 em;
-//         }
-
-//         a {
-//             color: color(primary-dark);
-//             border-radius: 15px;
-//             text-decoration: none;
-//             text-transform: uppercase;
-//             font-weight: bold;
-//             background-color: color(accent);
-//             display: block;
-//             text-align: center;
-//             margin: 50px auto 0 auto;
-//             padding: 15px;
-
-//             @include desktop {
-//                 display: inline-block;
-//                 padding: 15px 60px;            
-//             }
-//         }
-//     }
-// }
