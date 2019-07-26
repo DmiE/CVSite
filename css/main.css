@@ -20,7 +20,7 @@ h5 {
 h2 {
   font-size: 36px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -32,6 +32,60 @@ html {
 body {
   font-family: "Roboto Slab";
   margin: 0;
+}
+
+body #squareMenu {
+  position: fixed;
+  top: 45%;
+  right: 5%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 250px;
+  width: 50px;
+  z-index: 10;
+  opacity: 0.5;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
+}
+
+body #squareMenu .menuIcon {
+  height: 50px;
+  width: 50px;
+  display: block;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+body #squareMenu .menuIcon:hover {
+  fill: #68462A;
+  stroke: #68462A;
+  opacity: 1;
+}
+
+body #squareMenu #PersonalIcon {
+  background-image: url("../assets/ikony/menu/person.png");
+}
+
+body #squareMenu #EducationIcon {
+  background-image: url("../assets/ikony/menu/edu.png");
+}
+
+body #squareMenu #ProfessionalIcon {
+  background-image: url("../assets/ikony/menu/waliza.png");
+}
+
+body #squareMenu #SkillsIcon {
+  background-image: url("../assets/ikony/menu/zebatka.png");
+}
+
+body #squareMenu #ContactIcon {
+  background-image: url("../assets/ikony/menu/phone.png");
+}
+
+body #squareMenu:hover {
+  opacity: 1;
 }
 
 body section {
@@ -192,7 +246,7 @@ body #educationSection #topTriangle {
   height: 100px;
   width: 100%;
   background-image: url("../assets/gora.png");
-  background-size: auto;
+  background-size: cover;
   background-position: top left;
 }
 
@@ -220,7 +274,7 @@ body #professionalExperienceSection #bottomTriangle {
   height: 100px;
   width: 100%;
   background-image: url("../assets/dol.png");
-  background-size: auto;
+  background-size: cover;
   background-position: bottom right;
 }
 
