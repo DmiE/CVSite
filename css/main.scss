@@ -321,7 +321,8 @@ body {
                 }
 
                 .skillIcon:hover {
-                    opacity: 0.8;
+                    // opacity: 0.8;
+                    transform: scale(0.95);
                 }
 
                 #htmlIcon {
@@ -387,8 +388,9 @@ body {
         background-image: url("../assets//footer-bg.png");
         padding-top: 200px;
         position: relative;
+        background-position: center top;
 
-        h2 {
+            h2 {
             color: color(main);
         }
 
@@ -433,6 +435,6 @@ body {
                 margin: 20px auto;
                 display: block;
             }
-        }
+        }       
     }
 }
