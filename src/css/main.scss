@@ -97,10 +97,14 @@ body {
 
   section {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .sectionIcon {
       width: 100px;
@@ -137,6 +141,71 @@ body {
     }
   }
 
+  header {
+    width: 100%;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    grid-template-areas: 'leftMenu logo rightMenu';
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      width: 220px;
+      height: auto;
+      display: inline-block;
+      margin: auto;
+      grid-area: logo;
+    }
+
+    ul {
+      list-style: none;
+      display: inline-block;
+      margin: auto;
+      padding: 0 0 20px 0;
+      border-bottom: #e5e5e5 solid 1px;
+      width: 80%;
+      font-size: 18px;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        text-transform: uppercase;
+        margin: 0;
+
+        a {
+          text-decoration: none;
+          display: block;
+          color: color(main);
+        }
+      }
+    }
+
+    #leftMenu {
+      grid-area: leftMenu;
+      // text-align: right;
+      padding-right: 10px;
+      margin-right: 50px;
+
+      li {
+        margin-right: 50px;
+      }
+    }
+
+    #rightMenu {
+      grid-area: rightMenu;
+      // text-align: left;
+      padding-left: 10px;
+      margin-left: 50px;
+
+      li {
+        margin-left: 50px;
+      }
+    }
+  }
+
   #heroSection {
     background-image: url('../assets/hero-bg.png');
     background-position: center bottom;
@@ -145,72 +214,14 @@ body {
     z-index: -1;
     color: color(main);
 
-    header {
-      width: 100%;
-      height: 100px;
-      display: grid;
-      grid-template-columns: 3fr 1fr 3fr;
-      grid-template-areas: 'leftMenu logo rightMenu';
-      padding-top: 10px;
-
-      img {
-        width: 220px;
-        height: auto;
-        display: inline-block;
-        margin: auto;
-        grid-area: logo;
-      }
-
-      ul {
-        list-style: none;
-        display: inline-block;
-        margin: auto;
-        padding: 0 0 20px 0;
-        border-bottom: #e5e5e5 solid 1px;
-        width: 80%;
-        font-size: 18px;
-        text-align: center;
-
-        li {
-          display: inline-block;
-          text-transform: uppercase;
-          margin: 0;
-
-          a {
-            text-decoration: none;
-            display: block;
-            color: color(main);
-          }
-        }
-      }
-
-      #leftMenu {
-        grid-area: leftMenu;
-        // text-align: right;
-        padding-right: 10px;
-        margin-right: 50px;
-
-        li {
-          margin-right: 50px;
-        }
-      }
-
-      #rightMenu {
-        grid-area: rightMenu;
-        // text-align: left;
-        padding-left: 10px;
-        margin-left: 50px;
-
-        li {
-          margin-left: 50px;
-        }
-      }
-    }
-
-    #Intro {
-      margin-top: 250px;
+    .intro {
       text-align: center;
       text-transform: uppercase;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
@@ -228,19 +239,19 @@ body {
     background-image: url('../assets/gaklaxyPersonalSection.svg');
     background-size: contain;
     background-position: center top;
-    padding-top: 15vh;
   }
 
   #educationSection {
-    height: 120vh;
+    min-height: 120vh;
     background-image: url('../assets/forest-bg.png');
     background-size: cover;
     background-position: center bottom;
-    padding-top: 8vh;
+    position: relative;
 
     #topTriangle {
-      position: relative;
-      top: -8vh;
+      position: absolute;
+      top: 0;
+      right: 0;
       height: 100px;
       width: 100%;
       background-image: url('../assets/gora.png');
@@ -258,11 +269,10 @@ body {
   }
 
   #professionalExperienceSection {
-    height: 120vh;
+    min-height: 120vh;
     background-image: url('../assets/water-bg.png');
     background-size: cover;
     background-position: center top;
-    padding-top: 15vh;
     position: relative;
     top: -100px;
 
@@ -289,7 +299,7 @@ body {
     background-image: url('../assets/galaxySkillsSection.svg');
     background-size: contain;
     background-position: center center;
-    padding-top: 70px;
+    padding-bottom: 100px;
 
     #skillIcons {
       position: relative;
@@ -380,7 +390,6 @@ body {
 
   #footerSection {
     background-image: url('../assets//footer-bg.png');
-    padding-top: 200px;
     position: relative;
     background-position: center top;
 
