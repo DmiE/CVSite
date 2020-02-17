@@ -61,6 +61,10 @@ h2 {
   z-index: 10;
   opacity: 0.5;
   transition-duration: 300ms;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .square-menu__icon {
@@ -69,32 +73,28 @@ h2 {
   display: block;
   background-size: contain;
   opacity: 0.5;
-}
 
-.square-menu__icon:hover {
-  fill: #68462a;
-  stroke: #68462a;
-  opacity: 1;
+  &:hover {
+    // fill: #68462a;
+    // stroke: #68462a;
+    opacity: 1;
+  }
 }
 
 .square-menu__icon__personal {
-  background-image: url('../assets/ikony/menu/person.png');
+  // background-image: url('../assets/ikony/menu/person.png');
 }
 .square-menu__icon__education {
-  background-image: url('../assets/ikony/menu/edu.png');
+  // background-image: url('../assets/ikony/menu/edu.svg');
 }
 .square-menu__icon__professional {
-  background-image: url('../assets/ikony/menu/waliza.png');
+  // background-image: url('../assets/ikony/menu/waliza.svg');
 }
 .square-menu__icon__skills {
-  background-image: url('../assets/ikony/menu/zebatka.png');
+  // background-image: url('../assets/ikony/menu/zebatka.svg');
 }
 .square-menu__icon__contact {
-  background-image: url('../assets/ikony/menu/phone.png');
-}
-
-.square-menu:hover {
-  opacity: 1;
+  // background-image: url('../assets/ikony/menu/phone.svg');
 }
 
 section {
@@ -246,6 +246,7 @@ h3 {
   background-size: cover;
   background-position: center bottom;
   position: relative;
+  top: 50px;
   padding: 150px 0 100px 0;
 }
 
@@ -266,7 +267,7 @@ h3 {
   background-size: cover;
   background-position: center top;
   position: relative;
-  top: -100px;
+  top: -50px;
   padding: 150px 0 100px 0;
 }
 
