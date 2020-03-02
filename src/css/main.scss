@@ -18,6 +18,7 @@ body {
   font-family: 'Roboto Slab';
   margin: 0;
   position: relative;
+  overflow-x: hidden;
 }
 
 h1,
@@ -200,7 +201,7 @@ header {
 }
 
 .section__hero {
-  background-image: url('../assets/hero-bg.png');
+  background-image: url('../assets/hero-bg.jpg');
   background-position: center bottom;
   width: 100%;
   min-height: 100vh;
@@ -236,12 +237,22 @@ h3 {
 
 .section__education {
   min-height: 120vh;
-  background-image: url('../assets/forest-bg.png');
-  background-size: cover;
-  background-position: center bottom;
   position: relative;
   top: 50px;
   padding: 150px 0 100px 0;
+}
+
+.education__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/forest-background.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
+  z-index: -1;
 }
 
 .triangle__top {
@@ -257,17 +268,28 @@ h3 {
 
 .section__professional-experience {
   min-height: 120vh;
-  background-image: url('../assets/water-bg.png');
-  background-size: cover;
-  background-position: center top;
   position: relative;
   top: -50px;
   padding: 150px 0 100px 0;
 }
 
+.professional-experience__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/ocean-background.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+  z-index: -1;
+}
+
 .triangle__bottom {
   position: absolute;
   bottom: 0;
+  left: 0;
   height: 100px;
   width: 100%;
   background-image: url('../assets/dol.png');
@@ -302,46 +324,6 @@ h3 {
   transform: scale(0.95);
 }
 
-.html-icon {
-  background-image: url('../assets/ikony/HTML\ kopia.svg');
-}
-.css-icon {
-  background-image: url('../assets/ikony/CSS\ kopia.svg');
-}
-.js-icon {
-  background-image: url('../assets/ikony/JS\ kopia.svg');
-}
-.sass-icon {
-  background-image: url('../assets/ikony/SASS\ kopia.svg');
-}
-.git-icon {
-  background-image: url('../assets/ikony/Git\ kopia.svg');
-}
-.react-icon {
-  background-image: url('../assets/ikony/React\ kopia.svg');
-}
-.redux-icon {
-  background-image: url('../assets/ikony/Redux\ kopia.svg');
-}
-.docker-icon {
-  background-image: url('../assets/ikony/Docker\ kopia.svg');
-}
-.bootstrap-icon {
-  background-image: url('../assets/ikony/Bootstrap\ kopia.svg');
-}
-.ai-icon {
-  background-image: url('../assets/ikony/AI\ kopia.svg');
-}
-.ps-icon {
-  background-image: url('../assets/ikony/PS\ \ kopia.svg');
-}
-.python-icon {
-  background-image: url('../assets/ikony/Python\ kopia.svg');
-}
-.mysql-icon {
-  background-image: url('../assets/ikony/MYSQL\ kopia.svg');
-}
-
 .skill-icons__row {
   position: absolute;
   transform: translateX(-50%);
@@ -369,7 +351,7 @@ h3 {
 }
 
 .section__contact {
-  background-image: url('../assets/footer-bg.png');
+  background-image: url('../assets/footer-bg.jpg');
   position: relative;
   background-position: center top;
 
