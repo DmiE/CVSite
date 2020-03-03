@@ -6,8 +6,46 @@ $colors: (
   primary-dark: darken(#005dff, 40%)
 );
 
+$breakpoint--tiny: 360px;
+$breakpoint--very-small: 480px;
+$breakpoint--small: 600px;
+$breakpoint--medium: 768px;
+$breakpoint--large: 1024px;
+$breakpoint--very-large: 1280px;
+
 @function color($color-name) {
   @return map-get($colors, $color-name);
+}
+
+@mixin tiny {
+  @media (min-width: #{$breakpoint--tiny}) {
+    @content;
+  }
+}
+@mixin very-small {
+  @media (min-width: #{$breakpoint--very-small}) {
+    @content;
+  }
+}
+@mixin small {
+  @media (min-width: #{$breakpoint--small}) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (min-width: #{$breakpoint--medium}) {
+    @content;
+  }
+}
+@mixin large {
+  @media (min-width: #{$breakpoint--large}) {
+    @content;
+  }
+}
+@mixin very-large {
+  @media (min-width: #{$breakpoint--very-large}) {
+    @content;
+  }
 }
 
 * {
@@ -95,7 +133,7 @@ section {
 
 .container {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1700px;
   margin: auto;
 }
 
@@ -157,16 +195,16 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .main-menu__list {
   list-style: none;
-  padding: 0 0 20px 0;
+  padding: 0 0 13px 0;
   border-bottom: #e5e5e5 solid 1px;
   font-size: 18px;
   text-align: center;
-  min-width: 650px;
+  width: calc(50% - 110px);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -175,12 +213,17 @@ header {
 .main-menu__item {
   display: inline-block;
   text-transform: uppercase;
-  margin: 0 30px;
+  margin: 0;
+
+  @include very-large {
+    margin: 0 30px;
+  }
 
   a {
     text-decoration: none;
     display: block;
     color: color(main);
+    font-family: 'Raleway';
   }
 }
 
@@ -195,9 +238,13 @@ header {
 }
 
 .header__logo {
-  width: 220px;
+  width: 102px;
   height: auto;
-  margin: 0 20px;
+  margin: 0;
+
+  @include medium {
+    width: 200px;
+  }
 }
 
 .section__hero {
@@ -379,13 +426,15 @@ h3 {
 }
 
 .footer {
-  border-top: color(main) solid 1px;
-  width: 80%;
   margin-top: 50px;
   position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
+  left: 0;
   bottom: 0;
+  width: 100%;
+}
+
+.footer__container {
+  border-top: color(main) solid 1px;
 }
 
 .footer__logo {
