@@ -69,18 +69,25 @@ h1,
 h2,
 h3 {
   font-family: 'Raleway';
-  margin: 10px 50px;
+
+  @include small {
+    margin: 10px 50px;
+  }
 }
 
 h4,
 h5 {
   font-family: 'Roboto Slab';
   font-weight: 300;
-  font-size: 20px;
+  font-size: 16px;
   color: color(main);
   letter-spacing: 5px;
   text-align: center;
   margin: 10px 0;
+
+  @include small {
+    font-size: 20px;
+  }
 }
 
 h5 {
@@ -88,11 +95,15 @@ h5 {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 21px;
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
   margin-bottom: 10px;
+
+  @include small {
+    font-size: 36px;
+  }
 }
 
 .square-menu {
@@ -106,6 +117,11 @@ h2 {
   z-index: 10;
   opacity: 0.5;
   transition-duration: 300ms;
+  display: none;
+
+  @include large {
+    display: block;
+  }
 
   &:hover {
     opacity: 1;
@@ -139,7 +155,7 @@ section {
 
 .container {
   width: 100%;
-  padding: 0 10px;
+  padding: 0 15px;
 
   @include turbo-large {
     width: 100%;
@@ -157,34 +173,56 @@ section {
 }
 
 .section__title-container {
-  width: 630px;
+  width: 100%;
+  max-width: 630px;
   border-bottom: solid 1px color(myGold-light);
   margin: 0 auto;
 }
 
 .section__title-container__white {
-  width: 630px;
+  width: 100%;
+  max-width: 630px;
   border-bottom: solid 1px color(main);
   margin: 0 auto;
 }
 
 .section__icon {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   display: block;
-  margin: 10px auto;
+  margin: 0 auto;
+
+  @include small {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+  }
 }
 
 .section__paragraph-container {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .text__paragraph {
-  margin: 30px 70px 70px 70px;
-  line-height: 35px;
-  font-size: 18px;
+  line-height: 25px;
+  font-size: 14px;
   text-align: justify;
+
+  @include very-small {
+    line-height: 30px;
+    font-size: 16px;
+  }
+
+  @include small {
+    line-height: 35px;
+    font-size: 18px;
+  }
+
+  @include medium {
+    margin: 30px 70px 70px 70px;
+  }
 }
 
 .text__white {
@@ -197,23 +235,40 @@ header {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.header__container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height: 100%;
 }
 
 .header__line {
   border-bottom: 1px solid #e5e5e5;
   padding-top: 1px;
-  width: 490px;
-  display: block;
+  width: calc(50% - 110px);
+  margin: 0 90px;
+  display: none;
+
+  @include large {
+    display: block;
+  }
 }
 
 .header__logo {
-  width: 102px;
+  width: 133px;
   height: auto;
   margin: 0;
+
+  @include very-small {
+    width: 150px;
+  }
+
+  @include small {
+    width: 170px;
+  }
 
   @include medium {
     width: 200px;
@@ -240,13 +295,31 @@ header {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 26px;
   font-weight: 300;
-  margin: 30px 0px;
+  margin: 5px 0px;
+
+  @include small {
+    font-size: 35px;
+    margin: 10px 0px;
+  }
+
+  @include large {
+    font-size: 48px;
+    margin: 30px 0px;
+  }
 }
 h3 {
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 300;
+
+  @include small {
+    font-size: 21px;
+  }
+
+  @include large {
+    font-size: 30px;
+  }
 }
 
 .section__personal-statement {
@@ -389,8 +462,12 @@ h3 {
     text-transform: uppercase;
     font-family: 'Roboto Slab';
     font-size: 14px;
-    margin: 0 50px;
+    margin: 10px auto;
     transition-duration: 300ms;
+
+    @include small {
+      margin: 0 50px;
+    }
   }
 
   button:hover {
@@ -408,11 +485,22 @@ h3 {
 
 .footer__container {
   border-top: color(main) solid 1px;
+  width: calc(100% - 30px);
+  margin: auto;
+
+  @include small {
+    width: calc(100% - 180px);
+  }
 }
 
 .footer__logo {
-  width: 150px;
+  width: 100px;
   height: auto;
-  margin: 20px auto;
+  margin: 10px auto;
   display: block;
+
+  @include small {
+    width: 150px;
+    margin: 20px auto;
+  }
 }
