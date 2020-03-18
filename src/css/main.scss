@@ -12,6 +12,7 @@ $breakpoint--small: 600px;
 $breakpoint--medium: 768px;
 $breakpoint--large: 1024px;
 $breakpoint--very-large: 1280px;
+$breakpoint--turbo-large: 1700px;
 
 @function color($color-name) {
   @return map-get($colors, $color-name);
@@ -44,6 +45,11 @@ $breakpoint--very-large: 1280px;
 }
 @mixin very-large {
   @media (min-width: #{$breakpoint--very-large}) {
+    @content;
+  }
+}
+@mixin turbo-large {
+  @media (min-width: #{$breakpoint--turbo-large}) {
     @content;
   }
 }
@@ -133,8 +139,13 @@ section {
 
 .container {
   width: 100%;
-  max-width: 1700px;
-  margin: auto;
+  padding: 0 10px;
+
+  @include turbo-large {
+    width: 100%;
+    max-width: 1700px;
+    margin: auto;
+  }
 }
 
 .section__title {
@@ -186,55 +197,17 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.header__nav {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-}
-
-.main-menu__list {
-  list-style: none;
-  padding: 0 0 13px 0;
-  border-bottom: #e5e5e5 solid 1px;
-  font-size: 18px;
-  text-align: center;
-  width: calc(50% - 110px);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
-.main-menu__item {
-  display: inline-block;
-  text-transform: uppercase;
-  margin: 0;
-
-  @include very-large {
-    margin: 0 30px;
-  }
-
-  a {
-    text-decoration: none;
-    display: block;
-    color: color(main);
-    font-family: 'Raleway';
-  }
-}
-
-.main-menu__left {
-  padding-right: 10px;
-  margin-right: 50px;
-}
-
-.main-menu__right {
-  padding-left: 10px;
-  margin-left: 50px;
+.header__line {
+  border-bottom: 1px solid #e5e5e5;
+  padding-top: 1px;
+  width: 490px;
+  display: block;
 }
 
 .header__logo {
@@ -302,17 +275,6 @@ h3 {
   z-index: -1;
 }
 
-.triangle__top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100px;
-  width: 100%;
-  background-image: url('../assets/gora.png');
-  background-size: cover;
-  background-position: top left;
-}
-
 .section__professional-experience {
   min-height: 120vh;
   position: relative;
@@ -333,17 +295,6 @@ h3 {
   z-index: -1;
 }
 
-.triangle__bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100px;
-  width: 100%;
-  background-image: url('../assets/dol.png');
-  background-size: cover;
-  background-position: bottom right;
-}
-
 .section__skills {
   background-image: url('../assets/galaxySkillsSection.svg');
   background-size: contain;
@@ -354,17 +305,26 @@ h3 {
 .skill-icons__container {
   position: relative;
   margin: 50px auto 0 auto;
-  height: 400px;
+  height: 300px;
+
+  @include very-large {
+    height: 400px;
+  }
 }
 
 .skill-icon {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   opacity: 1;
   background-size: contain;
   background-position: center center;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   transition-duration: 100ms;
+
+  @include very-large {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .skill-icon:hover {
@@ -376,9 +336,13 @@ h3 {
   transform: translateX(-50%);
   left: 50%;
   display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
+  grid-template-columns: 150px 150px 150px 150px;
   grid-gap: 8px;
   height: 50px;
+
+  @include very-large {
+    grid-template-columns: 200px 200px 200px 200px;
+  }
 }
 
 .skill-icons__row__first {
@@ -387,14 +351,23 @@ h3 {
 }
 
 .skill-icons__row__second {
-  grid-template-columns: 200px 200px 200px 200px 200px;
-  top: 104px;
+  grid-template-columns: 150px 150px 150px 150px 150px;
+  top: 79px;
   z-index: 2;
+
+  @include very-large {
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    top: 104px;
+  }
 }
 
 .skill-icons__row__third {
-  top: 208px;
+  top: 158px;
   z-index: 1;
+
+  @include very-large {
+    top: 208px;
+  }
 }
 
 .section__contact {
