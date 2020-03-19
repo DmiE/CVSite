@@ -150,7 +150,15 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 0;
+  padding: 20px 0;
+
+  @include small {
+    padding: 50px 0;
+  }
+
+  @include large {
+    padding: 100px 0;
+  }
 }
 
 .container {
@@ -332,7 +340,11 @@ h3 {
   min-height: 120vh;
   position: relative;
   top: 50px;
-  padding: 150px 0 100px 0;
+  padding: 80px 0 130px 0;
+
+  @include large {
+    padding: 150px 0 100px 0;
+  }
 }
 
 .education__background {
@@ -352,7 +364,11 @@ h3 {
   min-height: 120vh;
   position: relative;
   top: -50px;
-  padding: 150px 0 100px 0;
+  padding: 80px 0 100px 0;
+
+  @include large {
+    padding: 150px 0 100px 0;
+  }
 }
 
 .professional-experience__background {
@@ -372,74 +388,87 @@ h3 {
   background-image: url('../assets/galaxySkillsSection.svg');
   background-size: contain;
   background-position: center center;
-  padding-bottom: 100px;
-}
 
-.skill-icons__container {
-  position: relative;
-  margin: 50px auto 0 auto;
-  height: 300px;
-
-  @include very-large {
-    height: 400px;
+  @include small {
+    padding-bottom: 100px;
   }
 }
 
 .skill-icon {
-  width: 150px;
-  height: 150px;
-  opacity: 1;
-  background-size: contain;
-  background-position: center center;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  width: 70px;
+  height: 70px;
+  background: #ccc;
+  margin: 15px;
+  transform: rotate(45deg);
   transition-duration: 100ms;
 
-  @include very-large {
-    width: 200px;
-    height: 200px;
+  @include small {
+    margin: 16px;
+  }
+
+  @include large {
+    width: 100px;
+    height: 100px;
+    margin: 22px;
+  }
+
+  &:hover {
+    transform: rotate(45deg) scale(0.95);
   }
 }
 
-.skill-icon:hover {
-  transform: scale(0.95);
+.skill-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.skill-icons__row {
+.skill-even__row {
+  width: 210px;
+  margin: auto;
+  height: 0;
+
+  @include small {
+    width: 420px;
+  }
+
+  @include large {
+    width: 600px;
+  }
+}
+
+.skill-odd__row {
+  width: 100px;
+  margin: auto;
   position: absolute;
-  transform: translateX(-50%);
+  top: -50px;
   left: 50%;
-  display: grid;
-  grid-template-columns: 150px 150px 150px 150px;
-  grid-gap: 8px;
-  height: 50px;
+  transform: translateX(-50%);
+  height: 0;
 
-  @include very-large {
-    grid-template-columns: 200px 200px 200px 200px;
+  @include small {
+    width: 520px;
+    top: 51px;
+  }
+
+  @include large {
+    width: 750px;
+    top: 72px;
   }
 }
 
-.skill-icons__row__first {
-  top: 0;
-  z-index: 3;
-}
+.skill-icons__container {
+  height: 500px;
+  margin-top: 50px;
+  position: relative;
 
-.skill-icons__row__second {
-  grid-template-columns: 150px 150px 150px 150px 150px;
-  top: 79px;
-  z-index: 2;
-
-  @include very-large {
-    grid-template-columns: 200px 200px 200px 200px 200px;
-    top: 104px;
+  @include small {
+    height: 300px;
+    margin-top: 0;
   }
-}
 
-.skill-icons__row__third {
-  top: 158px;
-  z-index: 1;
-
-  @include very-large {
-    top: 208px;
+  @include large {
+    height: 400px;
   }
 }
 
