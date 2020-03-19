@@ -406,10 +406,16 @@ h3 {
     margin: 16px;
   }
 
-  @include large {
+  @include medium {
     width: 100px;
     height: 100px;
     margin: 22px;
+  }
+
+  @include very-large {
+    width: 120px;
+    height: 120px;
+    margin: 27px;
   }
 
   &:hover {
@@ -432,8 +438,12 @@ h3 {
     width: 420px;
   }
 
-  @include large {
+  @include medium {
     width: 600px;
+  }
+
+  @include very-large {
+    width: 705px;
   }
 }
 
@@ -451,9 +461,14 @@ h3 {
     top: 51px;
   }
 
-  @include large {
+  @include medium {
     width: 750px;
     top: 72px;
+  }
+
+  @include very-large {
+    width: 880px;
+    top: 87px;
   }
 }
 
@@ -470,6 +485,15 @@ h3 {
   @include large {
     height: 400px;
   }
+}
+
+.scroll__anchor {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
 }
 
 .section__contact {
