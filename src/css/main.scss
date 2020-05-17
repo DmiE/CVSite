@@ -106,6 +106,10 @@ h2 {
   }
 }
 
+.section {
+  position: relative;
+}
+
 .square-menu {
   position: fixed;
   top: 45%;
@@ -500,6 +504,7 @@ h3 {
   background-image: url('../assets/footer-bg.jpg');
   position: relative;
   background-position: center top;
+  padding-top: 200px;
 
   .contact__button-container {
     margin: 60px auto;
@@ -556,4 +561,51 @@ h3 {
     width: 150px;
     margin: 20px auto;
   }
+}
+
+.section__connector {
+  height: 200px;
+  width: 0;
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  border-right: 1px dashed #d9d1d1;
+  z-index: 2;
+  display: none;
+
+  &:before,
+  &:after {
+    content: '';
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: #d9d1d1;
+    position: absolute;
+  }
+
+  &:before {
+    top: 0;
+    left: -3px;
+  }
+
+  &:after {
+    bottom: 0;
+    left: -3px;
+  }
+}
+
+.personal-statement__connector {
+  bottom: -177px;
+}
+
+.education__connector {
+  bottom: -25px;
+}
+
+.experience__connector {
+  bottom: -80px;
+}
+
+.skills__connector {
+  bottom: -177px;
 }
