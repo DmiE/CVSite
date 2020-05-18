@@ -352,9 +352,23 @@
           <h2 class="section__title__white">Contact me</h2>
         </div>
         <img class="section__icon" src="assets/phone.svg" />
-        <div class="contact__button-container">
-          <button>send me an e-mail</button>
-          <button>call me</button>
+        <div class="contact_form__container">
+          <form action="" class="contact_form">
+            <label for="email" class="contact_form__label">e-mail</label>
+            <input
+              class="contact_form__input"
+              type="e-mail"
+              name="email"
+              id="email"
+            />
+            <label for="message" class="contact_form__label">message</label>
+            <textarea
+              class="contact_form__textarea"
+              name="message"
+              id="message"
+            ></textarea>
+          </form>
+          <button class="contact_form__button">send me an e-mail</button>
         </div>
       </div>
     </section>

@@ -505,32 +505,91 @@ h3 {
   position: relative;
   background-position: center top;
   padding-top: 200px;
+}
 
-  .contact__button-container {
-    margin: 60px auto;
-    text-align: center;
+.contact_form__container {
+  margin: 60px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 470px;
+}
+
+.contact_form__input,
+.contact_form__textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.8);
+  background: none;
+  color: #e5e5e5;
+  line-height: 35px;
+  font-size: 18px;
+  font-family: 'Roboto Slab';
+  opacity: 0.9;
+  outline: none;
+  margin-bottom: 50px;
+  transition: opacity 0.4s;
+  padding-bottom: 5px;
+
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.contact_form__textarea {
+  resize: none;
+  height: 120px;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #e5e5e5 rgba(229, 229, 229, 0.1);
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
-  button {
-    width: 250px;
-    height: 55px;
-    border: 1px solid #e5e5e5;
+  &::-webkit-scrollbar {
+    width: 10px;
     background-color: rgba(229, 229, 229, 0.1);
-    color: color(main);
-    text-transform: uppercase;
-    font-family: 'Roboto Slab';
-    font-size: 14px;
-    margin: 10px auto;
-    transition-duration: 300ms;
-
-    @include small {
-      margin: 0 50px;
-    }
+    border-radius: 10px;
   }
 
-  button:hover {
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #e5e5e5;
+    cursor: pointer;
+  }
+}
+
+.contact_form__button {
+  width: 100%;
+  max-width: 250px;
+  height: 55px;
+  border: 1px solid #e5e5e5;
+  background-color: rgba(229, 229, 229, 0.1);
+  color: color(main);
+  text-transform: uppercase;
+  font-family: 'Roboto Slab';
+  font-size: 14px;
+  margin: 10px auto;
+  transition-duration: 300ms;
+  cursor: pointer;
+
+  &:hover {
     background-color: rgba(229, 229, 229, 0.2);
   }
+}
+
+.contact_form__label {
+  font-family: 'Roboto Slab';
+  font-size: 12px;
+  color: #e5e5e5;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+  text-align: left;
 }
 
 .footer {
