@@ -517,6 +517,10 @@ h3 {
   max-width: 470px;
 }
 
+.contact_form {
+  width: 100%;
+}
+
 .contact_form__input,
 .contact_form__textarea {
   width: 100%;
@@ -525,13 +529,17 @@ h3 {
   background: none;
   color: #e5e5e5;
   line-height: 35px;
-  font-size: 18px;
+  font-size: 14px;
   font-family: 'Roboto Slab';
   opacity: 0.9;
   outline: none;
   margin-bottom: 50px;
   transition: opacity 0.4s;
   padding-bottom: 5px;
+
+  @include large {
+    font-size: 18px;
+  }
 
   &:focus {
     opacity: 1;

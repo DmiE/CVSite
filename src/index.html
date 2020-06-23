@@ -353,13 +353,18 @@
         </div>
         <img class="section__icon" src="assets/phone.svg" />
         <div class="contact_form__container">
-          <form action="" class="contact_form">
+          <form
+            action="./php/SendMessage.php"
+            class="contact_form"
+            method="POST"
+          >
             <label for="email" class="contact_form__label">e-mail</label>
             <input
               class="contact_form__input"
               type="e-mail"
               name="email"
               id="email"
+              value="imie moje Dawid"
             />
             <label for="message" class="contact_form__label">message</label>
             <textarea
@@ -367,8 +372,10 @@
               name="message"
               id="message"
             ></textarea>
+            <button type="submit" class="contact_form__button">
+              send me an e-mail
+            </button>
           </form>
-          <button class="contact_form__button">send me an e-mail</button>
         </div>
       </div>
     </section>
