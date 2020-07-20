@@ -521,6 +521,18 @@ h3 {
   width: 100%;
 }
 
+.contact_form__cell {
+  position: relative;
+}
+
+.contact_form__error_message {
+  color: #c80006;
+  position: absolute;
+  bottom: 30px;
+  font-size: 10px;
+  margin: 0;
+}
+
 .contact_form__input,
 .contact_form__textarea {
   width: 100%;
@@ -541,6 +553,10 @@ h3 {
     font-size: 18px;
   }
 
+  &.error {
+    border-bottom: 1px solid #c80006;
+  }
+
   &:focus {
     opacity: 1;
   }
@@ -554,6 +570,7 @@ h3 {
   scrollbar-color: #e5e5e5 rgba(229, 229, 229, 0.1);
 
   &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
 

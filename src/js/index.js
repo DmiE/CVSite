@@ -14,55 +14,89 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const form = document.getElementById('contact_form');
 const email = document.getElementById('email');
-const message = document.getElementById('message');
+const emailErrorMessage = document.getElementById('email_error_message');
+const textMessage = document.getElementById('message');
+const textErrorMessage = document.getElementById('text_error_message');
 
-const validateEmail = input => {
+const validateEmail = (input, errorTextArea) => {
   const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (input.value === '') {
-    showError('Field is empty!');
+    showError('Field is empty!', input, errorTextArea);
     return false;
   } else if (!emailRegex.test(String(input.value).toLowerCase())) {
-    showError('Incorrect email address!');
+    showError('Incorrect email address!', input, errorTextArea);
     return false;
   } else if (input.value.length > 150) {
-    showError('Your email address is too long');
+    showError('Your email address is too long', input, errorTextArea);
     return false;
   } else {
     return true;
   }
 };
 
-const validateTextField = (input, maxLength) => {
+const validateTextField = (input, errorTextArea) => {
   if (input.value === '') {
-    showError('Field is empty!');
+    showError('Field is empty!', input, errorTextArea);
     return false;
-  } else if (input.value >= maxLength) {
-    showError('Your message is too long');
+  } else if (input.value.length > 5000) {
+    showError('Your message is too long', input, errorTextArea);
     return false;
   } else {
     return true;
   }
 };
 
-const showError = message => {
-  console.log(message);
+const showError = (message, errorTarget, errorTextArea) => {
+  errorTextArea.textContent = message;
+  errorTarget.classList.add('error');
 };
 
-const hideError = () => {
-  console.log('error hidden');
+const hideError = (errorTarget, errorTextArea) => {
+  errorTextArea.textContent = '';
+  errorTarget.classList.remove('error');
 };
+
+email.addEventListener('focus', () => {
+  hideError(email, emailErrorMessage);
+});
+
+email.addEventListener('blur', () => {
+  validateEmail(email, emailErrorMessage);
+});
+
+textMessage.addEventListener('focus', () => {
+  hideError(textMessage, textErrorMessage);
+});
+
+textMessage.addEventListener('blur', () => {
+  validateTextField(textMessage, textErrorMessage);
+});
 
 form.addEventListener('submit', event => {
-  validateEmail(email);
-  validateTextField(message);
+  event.preventDefault();
+  const isEmailValid = validateEmail(email, emailErrorMessage);
+  const isTextFieldValid = validateTextField(textMessage, textErrorMessage);
 
-  if (!validateEmail(email) || !validateTextField(message)) {
-    console.log('walidacja nie przeszła');
-  }
+  if (!isEmailValid || !isTextFieldValid) {
+    console.log('nie poszlo');
+  } else {
+    console.log('poszlo');
+    const data = { email: email.value, message: message.value };
 
-  if (true) {
-    // showError();
-    event.preventDefault();
+    fetch('./php/SendMessage.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 });

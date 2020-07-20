@@ -353,27 +353,36 @@
         </div>
         <img class="section__icon" src="assets/phone.svg" />
         <div class="contact_form__container">
-          <form
-            action="./php/SendMessage.php"
-            class="contact_form"
-            method="POST"
-            novalidate
-            id="contact_form"
-          >
-            <label for="email" class="contact_form__label">e-mail</label>
-            <input
-              class="contact_form__input"
-              type="email"
-              name="email"
-              id="email"
-            />
-            <label for="message" class="contact_form__label">message</label>
-            <textarea
-              class="contact_form__textarea"
-              name="message"
-              id="message"
-            ></textarea>
-            <button class="contact_form__button">
+          <form class="contact_form" novalidate id="contact_form">
+            <div class="contact_form__cell">
+              <label for="email" class="contact_form__label">e-mail</label>
+              <input
+                class="contact_form__input"
+                type="email"
+                name="email"
+                id="email"
+              />
+              <p
+                class="contact_form__error_message"
+                id="email_error_message"
+              ></p>
+            </div>
+            <div class="contact_form__cell">
+              <label for="message" class="contact_form__label">message</label>
+              <textarea
+                class="contact_form__textarea"
+                name="message"
+                id="message"
+              ></textarea>
+              <p
+                class="contact_form__error_message"
+                id="text_error_message"
+              ></p>
+            </div>
+            <button
+              class="contact_form__button"
+              id="contact_form__submit_button"
+            >
               send me an e-mail
             </button>
           </form>
