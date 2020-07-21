@@ -1,3 +1,4 @@
+// import axios from '../../node_modules/axios';
 // SMOOTH SCROLL
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -82,21 +83,15 @@ form.addEventListener('submit', event => {
     console.log('nie poszlo');
   } else {
     console.log('poszlo');
-    const data = { email: email.value, message: message.value };
+    const dataToSend = new FormData();
 
-    fetch('../php/SendMessage.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    dataToSend.append('email', email.value);
+    dataToSend.append('message', textMessage.value);
+
+    axios({
+      method: 'post',
+      url: '../php/SendMessage.php',
+      data: dataToSend
+    });
   }
 });

@@ -27,5 +27,8 @@
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
     "sass": "^1.25.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }
