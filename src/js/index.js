@@ -84,7 +84,7 @@ form.addEventListener('submit', event => {
     console.log('poszlo');
     const data = { email: email.value, message: message.value };
 
-    fetch('./php/SendMessage.php', {
+    fetch('../php/SendMessage.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
