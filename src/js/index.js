@@ -1,4 +1,4 @@
-// import axios from '../../node_modules/axios';
+import axios from '../../node_modules/axios';
 // SMOOTH SCROLL
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -18,6 +18,12 @@ const email = document.getElementById('email');
 const emailErrorMessage = document.getElementById('email_error_message');
 const textMessage = document.getElementById('message');
 const textErrorMessage = document.getElementById('text_error_message');
+const finalSuccessMsg = document.getElementById(
+  'contact_form__final_success_message'
+);
+const finalErrorMsg = document.getElementById(
+  'contact_form__final_error_message'
+);
 
 const validateEmail = (input, errorTextArea) => {
   const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -79,10 +85,7 @@ form.addEventListener('submit', event => {
   const isEmailValid = validateEmail(email, emailErrorMessage);
   const isTextFieldValid = validateTextField(textMessage, textErrorMessage);
 
-  if (!isEmailValid || !isTextFieldValid) {
-    console.log('nie poszlo');
-  } else {
-    console.log('poszlo');
+  if (isEmailValid || isTextFieldValid) {
     const dataToSend = new FormData();
 
     dataToSend.append('email', email.value);
@@ -92,6 +95,14 @@ form.addEventListener('submit', event => {
       method: 'post',
       url: '../php/SendMessage.php',
       data: dataToSend
-    });
+    })
+      .then(response => {
+        form.style.display = 'none';
+        finalSuccessMsg.style.display = 'flex';
+      })
+      .catch(error => {
+        form.style.display = 'none';
+        finalErrorMsg.style.display = 'flex';
+      });
   }
 });

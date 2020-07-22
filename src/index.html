@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dawid Mieszczak</title>
     <link rel="stylesheet" type="text/css" href="css/main.scss" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab&display=swap"
       rel="stylesheet"
@@ -386,6 +387,20 @@
               send me an e-mail
             </button>
           </form>
+          <div
+            class="contact_form__status_message"
+            id="contact_form__final_success_message"
+          >
+            <p>Thank you for your message.</p>
+            <p>I will contact you shortly!</p>
+          </div>
+          <div
+            class="contact_form__status_message"
+            id="contact_form__final_error_message"
+          >
+            <p>Something went wrong,</p>
+            <p>please try again later!</p>
+          </div>
         </div>
       </div>
     </section>
@@ -394,7 +409,6 @@
         <img class="footer__logo" src="/assets/logo.png" />
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
