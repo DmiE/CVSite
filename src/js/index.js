@@ -24,6 +24,7 @@ const finalSuccessMsg = document.getElementById(
 const finalErrorMsg = document.getElementById(
   'contact_form__final_error_message'
 );
+const submitButton = document.getElementById('contact_form__submit_button');
 
 const validateEmail = (input, errorTextArea) => {
   const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -87,6 +88,7 @@ form.addEventListener('submit', event => {
 
   if (isEmailValid || isTextFieldValid) {
     const dataToSend = new FormData();
+    submitButton.disabled = true;
 
     dataToSend.append('email', email.value);
     dataToSend.append('message', textMessage.value);
