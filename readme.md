@@ -1,8 +1,14 @@
 # [WEB] CV Site
 
+## Software versions
+
+- node 12.14.1
+- npm 6.13.4
+
 ## Avaliable scripts
 
 - `npm run dev` - run development server with BrowserSync
+- `npm run build` - create production build without eslint
 - `npm run build` - create production build
 - `npm run format` - format code with Prettier
 - `npm run lint` - lint JavaScript code
